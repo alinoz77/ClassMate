@@ -9,13 +9,16 @@ using ClassMate.Output;
 namespace ClassMate.DBO
 {
     public class DBOHandler {
-       public DBOHandler() {
-       }
+        string remoteConnectionString = "Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;TrustServerCertificate=False;Connection Timeout=30;";
+        string cloudConnectionString = "Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;TrustServerCertificate=False;Connection Timeout=30;Encrypt=True;";
+        string connectionString = cloudConnectionString;
+        public DBOHandler() {
+        } 
        
        public List<OutputData> Query()
        {
            List<OutputData> _templist=new List<OutputData>();
-           using(var   conn = new SqlConnection("Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;TrustServerCertificate=False;Connection Timeout=30;")) 
+           using(var   conn = new SqlConnection(connectionString)) 
            {
                var cmd = conn.CreateCommand();
 
@@ -41,7 +44,7 @@ namespace ClassMate.DBO
        }
     
         public void updatetHeadsetData(int headsetId, int attention) {
-            using(var conn = new SqlConnection("Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;TrustServerCertificate=False;Connection Timeout=30;")) 
+            using(var conn = new SqlConnection(connectionString)) 
             {
                 var cmd = conn.CreateCommand();
                 cmd.CommandText = @"UPDATE dbo.Headset SET ReadDate=CURRENT_TIMESTAMP, Attention= " + attention + " WHERE HeadsetID=" + headsetId;
