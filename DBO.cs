@@ -10,7 +10,7 @@ namespace ClassMate.DBO
 {
     public class DBOHandler {
         string remoteConnectionString = "Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;TrustServerCertificate=False;Connection Timeout=30;";
-        string cloudConnectionString = "Server=tcp:classmate.database.windows.net,1433;Database=ClassMate;User ID=sefu@classmate;Password=qwerty21!;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        string cloudConnectionString = "tcp:classmate.database.windows.net,1433;Initial Catalog=ClassMate;User ID=sefu@classmate;Password=qwerty21!";
         string connectionString = cloudConnectionString;
         public DBOHandler() {
         } 
